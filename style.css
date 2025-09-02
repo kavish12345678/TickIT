@@ -1,0 +1,245 @@
+/* Reset browser default margin/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgb(3, 4, 4);
+  color: rgb(250, 248, 248);
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Center content */
+/* Center content but keep top spacing for status card */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;       /* space after navbar */
+  min-height: 100vh;
+  background: #070627;      /* dark background */
+  color: white;
+  text-align: center;
+}
+
+/* Task List */
+ul {
+  list-style-type: none;
+  margin-top: 20px;
+  padding: 0;
+  width: 300px;
+  text-align: left;
+}
+
+ul li {
+  background: white;
+  color: black;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+ul li.completed {
+  text-decoration: line-through;
+  background: #d3d3d3;
+}
+
+/* ----- STATUS CARD ----- */
+.status-card {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 14px;
+  border: 2px solid #828dff;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  margin-bottom: 32px;
+  margin-top: 120px;
+  margin: 120px auto 0 auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* Left side: title + progress bar */
+.status-left .app-title {
+  margin: 0;
+  text-align: left;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.status-left .subtitle {
+  margin: 6px 0 14px 0;
+  text-align: left;
+  opacity: 0.8;
+}
+
+/* thin progress bar */
+.progress-bar {
+  width: 1000px;
+  height: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg,#7ce7ff,#a67cff);
+  width: 0%;
+  transition: width 300ms ease;
+  border-radius: 10px;
+}
+
+/* Right: circular counter */
+.status-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.progress-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #828dff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:30px;
+  color:#efeaff;
+  border: 6px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* ----- INPUT (big rounded + circle add button) ----- */
+.input-box {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+  margin-top: 100px;
+}
+
+.input-box input {
+  padding: 16px 18px;
+  font-size: 16px;
+  width: 560px;
+  max-width: 90%;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  outline: none;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.input-box input::placeholder { color: rgba(255,255,255,0.45); }
+
+#addBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(180deg,#9a8cff,#7c7cff);
+  color: #fff;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* ----- TASK LIST ----- */
+#taskList {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* left area inside li */
+.task-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* custom-looking checkbox */
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  transform: scale(1.05);
+}
+
+/* task text */
+.task-text {
+  font-size: 16px;
+  max-width: 600px;
+  word-break: break-word;
+}
+
+/* actions (edit + delete) */
+.task-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.task-actions .btn {
+  background: transparent;
+  border: none;
+  color: #ffffffd9;
+  cursor: pointer;
+  font-size: 18px;
+}
+.task-actions .btn.delete { color: #ff6b6b; font-size: 20px; }
+
+/* completed task style */
+#taskList li.completed .task-text {
+  text-decoration: line-through;
+  color: #8eeeffd9;
+  opacity: 0.6;
+}
+
+/* small responsive tweak */
+@media (max-width: 640px) {
+  .progress-bar { width: 60%; }
+  .input-box { flex-direction: column; gap:10px; }
+  #addBtn { align-self:flex-end; }
+  input { width: 100%; }
+}
+.progress-container {
+  display: flex;
+  flex-direction: column;  /* stack progress bar and streak vertically */
+  align-items: flex-start; /* keep streak text on the left */
+  gap: 8px; /* space between progress bar and streak text */
+  margin-top: 10px;
+}
+
+#streakWrapper {
+  font-size: 14px;
+  color: #fff;
+  margin-left: 5px; /* small left padding */
+}
+
+

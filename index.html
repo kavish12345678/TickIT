@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TickIT - To Do App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <h1>TickIT</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="hero">
+    <!-- Status card (replace old tagline) -->
+    <section class="status-card">
+    <div class="status-left">
+        <h1 class="app-title">Stop thinking. Start doing.</h1>
+        <p class="subtitle">Keep it up!</p>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div id="streakWrapper">
+                <span id="streakText">🔥 Daily Streak: 0 days</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="status-right">
+        <div class="progress-circle"><span id="countText">0 / 0</span></div>
+    </div>
+    </section>
+    <div class="input-box">
+      <input type="text" placeholder="Add a new task..." id="taskInput">
+      <button type="submit" id="addBtn">+</button>
+    </div>
+    <!-- Task list container -->
+    <ul id="taskList"></ul>
+
+  </main>
+  <script src="script.js"></script>
+
+
+</body>
+</html>
+
