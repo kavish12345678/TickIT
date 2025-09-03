@@ -12,6 +12,9 @@ const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 const countText = document.getElementById("countText");
 const progressFill = document.querySelector(".progress-fill");
+const streakText = document.getElementById("streakText");
+let streakData = JSON.parse(localStorage.getItem("streakData") || "{}");
+
 
 let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
@@ -152,6 +155,9 @@ function updateProgress() {
   countText.textContent = `${done} / ${total}`;
   const ratio = total === 0 ? 0 : Math.round((done / total) * 100);
   if (progressFill) progressFill.style.width = `${ratio}%`;
+  if (tasks.length && done === total){
+    blastConfetti()
+  }
 }
 
 function updateStreak() {
@@ -196,5 +202,46 @@ taskInput.addEventListener("keydown", (e) => {
   }
 });
 
+const blastConfetti = ()=> {
+    const count = 200,
+  defaults = {
+    origin: { y: 0.7 },
+  };
+
+function fire(particleRatio, opts) {
+  confetti(
+    Object.assign({}, defaults, opts, {
+      particleCount: Math.floor(count * particleRatio),
+    })
+  );
+}
+
+fire(0.25, {
+  spread: 26,
+  startVelocity: 55,
+});
+
+fire(0.2, {
+  spread: 60,
+});
+
+fire(0.35, {
+  spread: 100,
+  decay: 0.91,
+  scalar: 0.8,
+});
+
+fire(0.1, {
+  spread: 120,
+  startVelocity: 25,
+  decay: 0.92,
+  scalar: 1.2,
+});
+
+fire(0.1, {
+  spread: 120,
+  startVelocity: 45,
+});
+}
 
 
